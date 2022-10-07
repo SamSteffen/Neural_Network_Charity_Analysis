@@ -72,12 +72,41 @@ Since we wanted to use our model as a binary classifier, we then compiled our mo
 ## Summary
 Looking at our deep learning model's performance metrics, the model was able to correctly identify successful donor recipients approximately 72% of the time. Considering that our input data included more than 43 different variables with more than 34,000 data points, the deep learning model was able to produce a fairly reliable classifier.
 
-Once we created this model, we tried to optimize it in order to achieve a target predictive accuracy of higher than 75%.
+Our model had an optimization target predictive accuracy of higher than 75%. To see if we could achieve this accuracy score, we attempted to modify our model using the following methods: 
 
-Things we tried to increase the accuracy of our model performance, 
+- Because our initial investigation of the "ASK_AMT" feature showed that it contained 8,747 unique variables, it was removed from the dataset.
+- Increased the number of neurons from 80 to 100 in our first layer and from 30 to 50 in our second.
+- We also added an additional hidden layer with 20 neurons.
+- Changed the activation functions in our first layer to "sigmoid", in our second layer to "tanh" and set the third hidden layer activation function to "relu." The output layer activation remained at the "sigmoid" setting. 
 
-Were you able to achieve the target model performance?
+These efforts yielded the following results:
 
-What steps did you take to try and increase model performance?
+### OPTIMIZATION ATTEMPT #1
 
-Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and explain your recommendation.
+[optimization summary pic]
+
+Looking at our model summary, we can see that the number of weight parameters (weight coefficients) for each layer equals the number of input values times the number of neurons plus a bias term for each neuron. Our first layer has 42 input values, and multiplied by the 100 neurons (plus 100 bias terms for each neuron) gives us a total of 4300 weight parameters—plenty of opportunities for our model to find trends in the dataset.
+
+When we ran this model, we got the following output:
+
+[accuracy score 1]
+
+The output shows that this model was able to correctly identify successful donor recipients approximately 73% of the time. While this yielded a fairly reliable classifier, it is still short of our optimization goal of 75%.
+
+### OPTIMIZTION ATTEMPT #2
+For a second attempt at optimization, we made the following modifications to our model:
+- Made all the neurons the same for each hidden layer and reset the activation functions to "relu" for our input, "relu" for the first hidden layer, "relu" for the second hidden layer, "sigmoid" for our third hidden layer, and "relu" for the output layer activation function.
+
+These settings yielded the following output:
+
+### OPTIMIZATION ATTEMPT #3
+For our third attempt at optimization, we made the following modifications to our model:
+- Dropped additional features from the dataset
+- Kept the 3 hidden layers from our previous attempts, but changed the number of neurons in each to 80 for the first, 50 for the second and 30 for the third.
+- Changed the activation functions for each layer to "relu" for the first, second and third layers, and changed the output layer to "sigmoid."
+
+These settings yielded the following output:
+
+
+
+These attempts show that we were unsuccessful in our attempt to develop a classifier that achieved a 75% accuracy score for determining whether an organization who receieved funding from the non-profit Alphabet Soup, would be successful in their endeavors. We attempted to increase model the model's performance by reducing the number of features, changing the number of neurons, adding additional hidden layers, and changing the activation functions. It is likely that the model is not performing well becuase of the sheer amount and variety of data. For further testing, it would be my recommendation to try reducing the features further and utilize a supervised learning model on a portion of the dataset to determine what variables are likely to impact the metric for "success." Further definition around this metric would also be useful in clarifying further testing.
