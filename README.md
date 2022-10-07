@@ -19,22 +19,65 @@ The data for this analysis was compiled from more than 34,000 organizations that
 * **IS_SUCCESSFUL**—Was the money used effectively
 
 ## Results
-Deliverable 1: Preprocessing Data for a Neural Network Model
-Using your knowledge of Pandas and the Scikit-Learn’s StandardScaler(), you’ll need to preprocess the dataset in order to compile, train, and evaluate the neural network model later in Deliverable 2.
+### Preprocessing
+To build our binary classifier, we first cleaned the data in preparation for processing. This involved:
+- dropping unnecessary data columns;
+- grouping together columns that had more than 10 unique values;
+- encoding categorical variables to integers using the one-hot coding method;
+- splitting the pre-processed data into features and target arrays;
+- splitting the pre-processed data into training and testing datasets;
+- standardizing the numerical datasets using StandardScaler().
 
-The EIN and NAME columns have been dropped (5 pt)
-The columns with more than 10 unique values have been grouped together (5 pt)
-The categorical variables have been encoded using one-hot encoding (5 pt)
-The preprocessed data is split into features and target arrays (5 pt)
-The preprocessed data is split into training and testing datasets (5 pt)
-The numerical values have been standardized using the StandardScaler() module (5 pt)
+The target variables for our dataset are:
+- **"IS SUCCESSFUL"**
 
+The features of our model include:
+- **"STATUS"**
+- **"ASK_AMT"**
+- **"APPLICATION_TYPE"** 
+- **"INCOME_AMT"**
+- **"SPECIAL_CONSIDERATIONS"**
+- **"AFFILIATION"**
+- **"CLASSIFICATION"**
+- **"USE_CASE"**
+- **"ORGANIZATION"**
 
-Deliverable 2: Compile, Train, and Evaluate the Model
-Using your knowledge of TensorFlow, you’ll design a neural network, or deep learning model, to create a binary classification model that can predict if an Alphabet Soup–funded organization will be successful based on the features in the dataset. You’ll need to think about how many inputs there are before determining the number of neurons and layers in your model. Once you’ve completed that step, you’ll compile, train, and evaluate your binary classification model to calculate the model’s loss and accuracy.
+The variables that are neither targets nor features include:
+- **"EIN"**
+- **"NAME-Identification"**
 
-Deliverable 3: Optimize the Model
+A visual of our dataframe, following preprocessing, prior to compiling and training, is shown below:
 
+[df_visual]
 
+### Compiling, Training, and Evaluating the Model
+Once our data was preprocessed, we utilized TensorFlow to design a neural network (deep learning model) to create a binary classification model to predict whether organizations funded by Alphabet Soup would be successful, based on the features in the dataset.
+
+For the hidden layers, our deep learning model used 2 hidden layers with 80 neurons in the first and 30 neurons in the second. These numbers were selected in the hopes of achieving a high accuracy statistic. All of the hidden layers used the relu activation function to identify nonlinear characteristics from the input values.
+
+To determine the inputs, we used the same number of variables present in our feature DataFrame, of which there were 43.
+
+Once the inputs, neurons, and layers were decided upon, we compiled, trained and evaluated our binary classification model to calculate the model's loss accuracy. The results of this process are shown below.
+
+To design our model's output layer we used the "sigmoid" activation function to help us predict the probability that an organization receiving donations would be successful. A summary of the structure of our model is shown below:
+
+[summary pic]
+
+Looking at our model summary, we can see that the number of weight parameters (weight coefficients) for each layer equals the number of input values times the number of neurons plus a bias term for each neuron. Our first layer has 43 input values, and multiplied by the 80 neurons (plus eighty bias terms for each neuron) gives us a total of 3520 weight parameters—plenty of opportunities for our model to find trends in the dataset.
+
+Since we wanted to use our model as a binary classifier, we then compiled our model using the ```binary_crossentropy``` loss function, ```adam``` optimizer, and ```accuracy``` metrics. We then evaluated our model's performance by testing its predictive capabilities on our testing dataset. The output of this evaluation is shown below.
+
+[image]
 
 ## Summary
+Looking at our deep learning model's performance metrics, the model was able to correctly identify successful donor recipients approximately 72% of the time. Considering that our input data included more than 43 different variables with more than 34,000 data points, the deep learning model was able to produce a fairly reliable classifier.
+
+Once we created this model, we tried to optimize it in order to achieve a target predictive accuracy of higher than 75%.
+
+Things we tried to increase the accuracy of our model performance, 
+
+Were you able to achieve the target model performance?
+
+What steps did you take to try and increase model performance?
+
+Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and explain your recommendation.
