@@ -53,13 +53,13 @@ A visual of our dataframe, following preprocessing, prior to compiling and train
 ### Compiling, Training, and Evaluating the Model
 Once our data was preprocessed, we utilized TensorFlow to design a neural network (deep learning model) to create a binary classification model to predict whether organizations funded by Alphabet Soup would be successful, based on the features in the dataset.
 
-For the hidden layers, our deep learning model used 2 hidden layers with 80 neurons in the first and 30 neurons in the second. These numbers were selected in the hopes of achieving a high accuracy statistic. All of the hidden layers used the relu activation function to identify nonlinear characteristics from the input values.
+* For the hidden layers, our deep learning model used 2 hidden layers with 80 neurons in the first and 30 neurons in the second. These numbers were selected in the hopes of achieving a high accuracy statistic. All of the hidden layers used the relu activation function to identify nonlinear characteristics from the input values.
 
-To determine the inputs, we used the same number of variables present in our feature DataFrame, of which there were 43.
+* To determine the inputs, we used the same number of variables present in our feature DataFrame, of which there were 43.
 
-Once the inputs, neurons, and layers were decided upon, we compiled, trained and evaluated our binary classification model to calculate the model's loss accuracy. The results of this process are shown below.
+* Once the inputs, neurons, and layers were decided upon, we compiled, trained and evaluated our binary classification model to calculate the model's loss accuracy. 
 
-To design our model's output layer we used the "sigmoid" activation function to help us predict the probability that an organization receiving donations would be successful. A summary of the structure of our model is shown below:
+* To design our model's output layer we used the "sigmoid" activation function to help us predict the probability that an organization receiving donations would be successful. A summary of the structure of our model is shown below:
 
 <img width="451" alt="del_2_nn_summary" src="https://user-images.githubusercontent.com/104729703/194716370-98574158-c436-4a5b-83c1-3782be9a5863.png">
 
