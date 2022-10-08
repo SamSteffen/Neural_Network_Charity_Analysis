@@ -48,7 +48,7 @@ The variables that are neither targets nor features include:
 
 A visual of our dataframe, following preprocessing, prior to compiling and training, is shown below:
 
-[df_visual]
+<img width="659" alt="del_1_df" src="https://user-images.githubusercontent.com/104729703/194716366-71b8b439-0f38-498b-a617-ddb588e3c33c.png">
 
 ### Compiling, Training, and Evaluating the Model
 Once our data was preprocessed, we utilized TensorFlow to design a neural network (deep learning model) to create a binary classification model to predict whether organizations funded by Alphabet Soup would be successful, based on the features in the dataset.
@@ -61,13 +61,13 @@ Once the inputs, neurons, and layers were decided upon, we compiled, trained and
 
 To design our model's output layer we used the "sigmoid" activation function to help us predict the probability that an organization receiving donations would be successful. A summary of the structure of our model is shown below:
 
-[summary pic]
+<img width="451" alt="del_2_nn_summary" src="https://user-images.githubusercontent.com/104729703/194716370-98574158-c436-4a5b-83c1-3782be9a5863.png">
 
 Looking at our model summary, we can see that the number of weight parameters (weight coefficients) for each layer equals the number of input values times the number of neurons plus a bias term for each neuron. Our first layer has 43 input values, and multiplied by the 80 neurons (plus eighty bias terms for each neuron) gives us a total of 3520 weight parameters—plenty of opportunities for our model to find trends in the dataset.
 
 Since we wanted to use our model as a binary classifier, we then compiled our model using the ```binary_crossentropy``` loss function, ```adam``` optimizer, and ```accuracy``` metrics. We then evaluated our model's performance by testing its predictive capabilities on our testing dataset. The output of this evaluation is shown below.
 
-[image]
+<img width="661" alt="Evaluation" src="https://user-images.githubusercontent.com/104729703/194716378-d45d983c-d81d-4441-aa03-803506622d37.png">
 
 ## Summary
 Looking at our deep learning model's performance metrics, the model was able to correctly identify successful donor recipients approximately 72% of the time. Considering that our input data included more than 43 different variables with more than 34,000 data points, the deep learning model was able to produce a fairly reliable classifier.
@@ -83,13 +83,7 @@ These efforts yielded the following results:
 
 ### OPTIMIZATION ATTEMPT #1
 
-[optimization summary pic]
-
-Looking at our model summary, we can see that the number of weight parameters (weight coefficients) for each layer equals the number of input values times the number of neurons plus a bias term for each neuron. Our first layer has 42 input values, and multiplied by the 100 neurons (plus 100 bias terms for each neuron) gives us a total of 4300 weight parameters—plenty of opportunities for our model to find trends in the dataset.
-
-When we ran this model, we got the following output:
-
-[accuracy score 1]
+<img width="735" alt="Evaluation_opt1" src="https://user-images.githubusercontent.com/104729703/194716387-a734ee69-3c3e-4e19-90d1-e3cd577c580e.png">
 
 The output shows that this model was able to correctly identify successful donor recipients approximately 73% of the time. While this yielded a fairly reliable classifier, it is still short of our optimization goal of 75%.
 
@@ -99,6 +93,8 @@ For a second attempt at optimization, we made the following modifications to our
 
 These settings yielded the following output:
 
+<img width="662" alt="Evaluation_opt2" src="https://user-images.githubusercontent.com/104729703/194716413-57ac9065-b8c9-43ed-b303-857427b54118.png">
+
 ### OPTIMIZATION ATTEMPT #3
 For our third attempt at optimization, we made the following modifications to our model:
 - Dropped additional features from the dataset
@@ -107,6 +103,6 @@ For our third attempt at optimization, we made the following modifications to ou
 
 These settings yielded the following output:
 
-
+<img width="667" alt="Evaluation_opt3" src="https://user-images.githubusercontent.com/104729703/194716420-07394316-3cd8-49e1-9e23-70d4008cf34a.png">
 
 These attempts show that we were unsuccessful in our attempt to develop a classifier that achieved a 75% accuracy score for determining whether an organization who receieved funding from the non-profit Alphabet Soup, would be successful in their endeavors. We attempted to increase model the model's performance by reducing the number of features, changing the number of neurons, adding additional hidden layers, and changing the activation functions. It is likely that the model is not performing well becuase of the sheer amount and variety of data. For further testing, it would be my recommendation to try reducing the features further and utilize a supervised learning model on a portion of the dataset to determine what variables are likely to impact the metric for "success." Further definition around this metric would also be useful in clarifying further testing.
